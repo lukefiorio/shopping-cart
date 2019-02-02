@@ -1,13 +1,9 @@
-.merch {
-    border-top: 1px solid lightgray;
-    padding: 10px;
-    margin-left: 50px;
-    margin-top: 20px;
-}
+
 
 #header {
     background-color: orange;
     width: 100%;
+    display: flex;
 }
 
 .cart {
@@ -15,9 +11,17 @@
     display: inline;
 }
 
-.prodDesc {
-    float: left;
+.merch {
+    border-top: 1px solid lightgray;
+    padding: 20px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
     width: 75%;
+}
+
+.prodDesc {
+    display: block;
 }
 
 .product {
@@ -25,12 +29,8 @@
 }
 
 .price {
-    text-align: right;
-    top: 50%;
-    height: 20px;
-    margin-top: 10px;
-}
-
-.price:before {
-    content: "$";
+    display: flex;
+    align-content: flex-end;
+    /* display: flex;
+    justify-content: flex-end; */
 }

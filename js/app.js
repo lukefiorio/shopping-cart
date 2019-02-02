@@ -58,6 +58,6 @@ for (var i=0; i<merchArr.length; i++) {
     // append price to merch class
     var priceBox = document.createElement('div');
     priceBox.className = 'price';
-    priceBox.innerHTML = merchArr[i].price;
+    priceBox.innerHTML = '$'+merchArr[i].price;
     merchBox.appendChild(priceBox);
 }
