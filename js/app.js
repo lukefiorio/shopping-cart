@@ -10,6 +10,12 @@ var merchArr =
         {product: "Hug Me Pillow", description: "No more lonely nights as you snuggle with your best friend. And it will never walk out on you.", price: 599.99}
     ];
 
+//calculate subtotal price
+var subTotal = merchArr.reduce((a, b) => a + b.price, 0);
+
+// add sub-total to end of merchArr
+merchArr.push({product: "Subtotal",description: "",price: subTotal});
+
 // make container to hold header img/label
 var headerBox = document.createElement('div');
 headerBox.id = 'header';
@@ -22,7 +28,7 @@ cartImg.id='cartImg';
 cartImg.src = 'images/cart.svg';
 
 // create container for cart label
-var cartLabel = document.createElement('p');
+var cartLabel = document.createElement('h2');
 cartLabel.className='cart';
 cartLabel.id='cartLabel';
 cartLabel.innerHTML='Shopping Cart';
@@ -56,8 +62,12 @@ for (var i=0; i<merchArr.length; i++) {
     prodAndDescBox.appendChild(descriptionBox);
 
     // append price to merch class
-    var priceBox = document.createElement('div');
+    var priceBox = document.createElement('p');
     priceBox.className = 'price';
+    priceBox.id = 'price'+(i+1);
     priceBox.innerHTML = '$'+merchArr[i].price;
     merchBox.appendChild(priceBox);
 }
+
+// bold the subtotal price
+document.getElementsByClassName('price')[merchArr.length-1].style.fontWeight='bold';

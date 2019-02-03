@@ -3,34 +3,41 @@
 #header {
     background-color: orange;
     width: 100%;
-    display: flex;
+    padding: 1em;
+    margin-bottom: 4em;
 }
 
 .cart {
     vertical-align: middle;
     display: inline;
+
+}
+
+#cartLabel {
+    color: #A76A04;
+    font-weight: bold;
+    margin-left: 20px;
 }
 
 .merch {
     border-top: 1px solid lightgray;
-    padding: 20px;
-    margin-left: 50px;
+    padding: 15px;
+    margin-left: 5%;
     display: flex;
     align-items: center;
-    width: 75%;
-}
-
-.prodDesc {
-    display: block;
+    justify-content: space-between;
+    width: 60%;
 }
 
 .product {
     font-weight: bold;
 }
 
+.description {
+    font-size: 0.85em;
+    color: rgb(150,150,150);
+}
+
 .price {
-    display: flex;
-    align-content: flex-end;
-    /* display: flex;
-    justify-content: flex-end; */
+    margin-left: 5%;
 }
