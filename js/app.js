@@ -11,10 +11,10 @@ var merchArr =
     ];
 
 //calculate subtotal price
-var subTotal = merchArr.reduce((a, b) => a + b.price, 0);
+var subTotalPrice = merchArr.reduce((a, b) => a + b.price, 0);
 
 // add sub-total to end of merchArr
-merchArr.push({product: "Subtotal",description: "",price: subTotal});
+merchArr.push({product: "Subtotal",description: "",price: subTotalPrice});
 
 // make container to hold header img/label
 var headerBox = document.createElement('div');
@@ -37,6 +37,21 @@ cartLabel.innerHTML='Shopping Cart';
 headerBox.appendChild(cartImg);
 headerBox.appendChild(cartLabel);
 
+//make array to hold image links
+//last link is a blank image to keep the Subtotal in the correct place
+// there has to be a better way...
+var imgArray = [
+    'https://images.pet-supermarket.co.uk/images/w_400/product/I9210278/Kokoba-Finger-Toothbrush-Set-for-Dogs',
+    'https://img.discogs.com/Jf8fMcTNG9qZtcHcZaMwFZ6Wi1Q=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-2382962-1360331108-2121.jpeg.jpg',
+    'https://cdn.trendhunterstatic.com/phpthumbnails/253/253437/253437_1_230c.jpeg',
+    'https://images-na.ssl-images-amazon.com/images/I/51AF%2BqomYPL.jpg',
+    'http://www.saunatimes.com/wp-content/uploads/sauna-pants1.jpg',
+    'https://images.prod.meredith.com/product/20459cbcb9c409ca83fb28a33c9ddf91/1518828691340/l/hug-me-decorative-throw-pillow-gray-17-x17',
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAABvCAMAAAAwjD5SAAAAA1BMVEX///+nxBvIAAAAM0lEQVR4nO3BMQEAAADCoPVPbQsvoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICrAXBNAAEknkf6AAAAAElFTkSuQmCC'
+];
+
+
+//what's best practice for the last "subtotal" spot?
 
 for (var i=0; i<merchArr.length; i++) {
     // make merch class to hold all info on a product
@@ -44,10 +59,22 @@ for (var i=0; i<merchArr.length; i++) {
     merchBox.className = 'merch'
     document.body.appendChild(merchBox);
 
+    // make prodContent class to hold img, name, and desc
+    var prodContent = document.createElement('div');
+    prodContent.className = 'prodContent';
+    merchBox.appendChild(prodContent);
+
+    // make prodImg to hold images.
+    var imgBox = document.createElement('img');
+    imgBox.className = 'prodImg';
+    prodContent.appendChild(imgBox);
+    imgBox.src = imgArray[i];
+
+
     // make prodAndDesc class to hold Product & Description
     var prodAndDescBox = document.createElement('div');
     prodAndDescBox.className = 'prodDesc';
-    merchBox.appendChild(prodAndDescBox);
+    prodContent.appendChild(prodAndDescBox);
 
     // append product to prodAndDesc class
     var productBox = document.createElement('div');
@@ -71,3 +98,5 @@ for (var i=0; i<merchArr.length; i++) {
 
 // bold the subtotal price
 document.getElementsByClassName('price')[merchArr.length-1].style.fontWeight='bold';
+
+// hide empty images

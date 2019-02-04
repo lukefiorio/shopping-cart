@@ -1,4 +1,9 @@
 
+/* allow background to extend to browser borders */
+body {
+    margin: 0;
+    padding: 0;
+}
 
 #header {
     background-color: orange;
@@ -10,18 +15,18 @@
 .cart {
     vertical-align: middle;
     display: inline;
-
 }
 
 #cartLabel {
     color: #A76A04;
     font-weight: bold;
+    font-family: 'Noto Sans', sans-serif;
     margin-left: 20px;
 }
 
 .merch {
     border-top: 1px solid lightgray;
-    padding: 15px;
+    padding: 10px;
     margin-left: 5%;
     display: flex;
     align-items: center;
@@ -29,13 +34,28 @@
     width: 60%;
 }
 
+.prodContent {
+    display: flex;
+    align-items: center;
+}
+
+.prodImg {
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+}
+
 .product {
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 115%;
+    color: rgb(100,100,100);
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .description {
-    font-size: 0.85em;
+    font-size: 0.70em;
     color: rgb(150,150,150);
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .price {
